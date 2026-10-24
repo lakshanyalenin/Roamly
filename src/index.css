@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== Dark theme (default) ===== */
+:root {
+  --bg-base: #111827;
+  --bg-alt: #0F172A;
+  --bg-card: #1F2937;
+  --bg-input: #1F2937;
+  --bg-hover: #374151;
+
+  --fg-primary: #F9FAFB;
+  --fg-secondary: #D1D5DB;
+  --fg-muted: #9CA3AF;
+  --fg-faint: #6B7280;
+
+  --accent: #38BDF8;
+  --accent-soft: #7DD3FC;
+  --accent-bg: rgba(56, 189, 248, 0.12);
+  --accent-fg: #0F172A;
+
+  --gold: #FBBF24;
+  --gold-soft: #FDE68A;
+  --gold-bg: rgba(251, 191, 36, 0.12);
+
+  --border-color: #374151;
+  --border-soft: rgba(55, 65, 81, 0.5);
+}
+
+/* ===== Light theme ===== */
+html:not(.dark) {
+  --bg-base: #F8FAFC;
+  --bg-alt: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-hover: #E2E8F0;
+
+  --fg-primary: #0F172A;
+  --fg-secondary: #475569;
+  --fg-muted: #64748B;
+  --fg-faint: #94A3B8;
+
+  --accent: #0369A1;
+  --accent-soft: #0EA5E9;
+  --accent-bg: rgba(3, 105, 161, 0.10);
+  --accent-fg: #FFFFFF;
+
+  --gold: #B45309;
+  --gold-soft: #D97706;
+  --gold-bg: rgba(180, 83, 9, 0.10);
+
+  --border-color: #CBD5E1;
+  --border-soft: rgba(203, 213, 225, 0.6);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg-base);
+    color: var(--fg-primary);
+    @apply font-body antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    color: var(--fg-primary);
+  }
+  select option {
+    background-color: var(--bg-card);
+    color: var(--fg-primary);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+    background-color: var(--accent);
+    color: var(--accent-fg);
+    box-shadow: 0 10px 25px -5px var(--accent-bg);
+  }
+  .btn-primary:hover {
+    background-color: var(--accent-soft);
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold tracking-wide border-2 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0;
+    background-color: var(--bg-card);
+    color: var(--accent);
+    border-color: var(--border-color);
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all duration-200;
+    color: var(--fg-secondary);
+  }
+  .btn-ghost:hover {
+    color: var(--accent);
+    background-color: var(--accent-bg);
+  }
+  .card {
+    @apply rounded-3xl overflow-hidden transition-all duration-300;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl transition-all duration-200;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--fg-primary);
+  }
+  .input-field::placeholder {
+    color: var(--fg-muted);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-bg);
+  }
+  .label-text {
+    @apply block text-sm font-semibold mb-2;
+    color: var(--fg-secondary);
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
+    color: var(--fg-primary);
+  }
+  .section-subtitle {
+    @apply text-base sm:text-lg max-w-2xl;
+    color: var(--fg-secondary);
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-fg-primary { color: var(--fg-primary); }
+  .text-fg-secondary { color: var(--fg-secondary); }
+  .text-fg-muted { color: var(--fg-muted); }
+  .text-accent-c { color: var(--accent); }
+  .text-gold-c { color: var(--gold); }
+  .bg-card-c { background-color: var(--bg-card); }
+  .bg-base-c { background-color: var(--bg-base); }
+  .bg-alt-c { background-color: var(--bg-alt); }
+  .bg-input-c { background-color: var(--bg-input); }
+  .bg-accent-soft-c { background-color: var(--accent-bg); }
+  .bg-gold-soft-c { background-color: var(--gold-bg); }
+  .bg-hover-c { background-color: var(--bg-hover); }
+  .border-c { border-color: var(--border-color); }
+  .border-accent-c { border-color: var(--accent); }
+  .ring-accent-c { --tw-ring-color: var(--accent); }
+}
