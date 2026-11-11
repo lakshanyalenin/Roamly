@@ -74,20 +74,6 @@ The website features a modern interface with a travel-inspired design, interacti
 | Tailwind CSS | Utility-based styling |
 | Vite | Development and build tooling |
 
-## 🖥️ Website Preview
-
-### Homepage
-![Roamly Homepage](screenshots/roamly-homepage.png)
-
-### About & Destination Discovery
-![Roamly About Section](screenshots/roamly-about.png)
-
-### Trip Planner
-![Roamly Trip Planner](screenshots/roamly-trip-planner.png)
-
-### Services
-![Roamly Services](screenshots/roamly-services.png)
-
 ## 🚀 Getting Started
 
 Follow these instructions to run Roamly on your local machine.
